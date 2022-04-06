@@ -2,31 +2,23 @@
 
 namespace Tests\Unit\Entities;
 
-use App\Mail\Mail;
+use App\Mail\WelcomeMail;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
 class SendMailTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected $user;
-
-    public function setUp(): void
-    {
-        parent::setUp();
-        $this->user = User::factory()->create();
-    }
-
     /** @test */
     public function send_email()
     {
-        $this->assertTrue(true);
-//        $mail = new Mail();
-//        $response = $mail->build();
-//        Mail::assert(Mail::class, function ($mail) {
-//            return $mail->hasTo('boban.vidic123@gmail.com');
-//        });
+        Mail::fake();
+
+        $mail = new WelcomeMail();
+
+        $this->assertInstanceOf(WelcomeMail::class, $mail->build());
     }
 }

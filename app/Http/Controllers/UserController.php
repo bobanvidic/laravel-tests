@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+//use App\Mail\Mail;
+use App\Mail\WelcomeMail;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller {
 
@@ -69,5 +72,13 @@ class UserController extends Controller {
     {
         $user->delete();
         return response()->json('User is successfully deleted!',200);
+    }
+
+    /**
+     * @return void
+     */
+    public function sendEmail()
+    {
+        Mail::to('test@gmail.com')->send(new WelcomeMail());
     }
 }

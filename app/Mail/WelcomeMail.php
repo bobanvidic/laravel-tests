@@ -7,14 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Mail extends Mailable
+class WelcomeMail extends Mailable
 {
     use Queueable, SerializesModels;
-
-    /**
-     * @var User $user
-     */
-    protected $user;
 
     /**
      * Create a new message instance.
@@ -23,7 +18,7 @@ class Mail extends Mailable
      */
     public function __construct()
     {
-//        $this->user = $user;
+        //
     }
 
     /**
@@ -33,11 +28,6 @@ class Mail extends Mailable
      */
     public function build()
     {
-        return $this
-            ->subject('Laravel email test')
-            ->to('boban.vidic123@gmail.com')
-            ->markdown('emails.template');
-
-        return $this->view('view.name');
+        return $this->markdown('emails.welcome');
     }
 }

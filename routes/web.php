@@ -19,6 +19,7 @@ Route::get('/users/{user}/edit','UserController@edit')->name('users.edit');
 Route::post('/users/store','UserController@store')->name('users.store');
 Route::put('/users/{user}/update','UserController@update')->name('users.update');
 Route::delete('/users/{user}/delete','UserController@delete')->name('users.delete');
+Route::get('/users/send-email','UserController@sendEmail')->name('users.send-email');
 
 /** Companies */
 Route::get('/companies','CompanyController@index')->name('companies.index');

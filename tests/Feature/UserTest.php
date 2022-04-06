@@ -2,11 +2,13 @@
 
 namespace Tests\Feature;
 
+use App\Mail\WelcomeMail;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
@@ -117,5 +119,15 @@ class UserTest extends TestCase
             'id' => $user->id,
             'first_name' => $user->first_name
         ]);
+    }
+
+    /** @test */
+    public function a_user_send_welcome_email()
+    {
+        Mail::fake();
+
+        $this->call('GET', "/users/send-email");
+
+        Mail::assertSent(WelcomeMail::class);
     }
 }
