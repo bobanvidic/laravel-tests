@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-//use App\Mail\Mail;
 use App\Mail\WelcomeMail;
 use App\Models\User;
 use App\Services\UserService;

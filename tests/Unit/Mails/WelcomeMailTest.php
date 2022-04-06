@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
-class SendMailTest extends TestCase
+class WelcomeMailTest extends TestCase
 {
     use RefreshDatabase;
 
