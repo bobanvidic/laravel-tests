@@ -45,4 +45,23 @@ class UserService {
     {
         $this->userRepository->update($user, $data);
     }
+
+    /**
+     * @return void
+     */
+    public function exampleTestService()
+    {
+        $users = $this->userRepository->fetchAll();
+        if (! $users) {
+            return 'Error';
+        }
+
+        if ($users->count() >= 0 && $users->count() <= 2) {
+            return 'case 1';
+        }
+
+        if ($users->count() > 2) {
+            return 'case 2';
+        }
+    }
 }

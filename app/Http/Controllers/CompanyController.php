@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateCompanyRequest;
-use App\Http\Requests\UpdateAddressRequest;
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Models\Company;
 use App\Services\CompanyService;
-use Exception;
 
 class CompanyController extends Controller {
 

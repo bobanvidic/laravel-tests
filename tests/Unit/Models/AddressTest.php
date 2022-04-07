@@ -13,12 +13,6 @@ class AddressTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-        Company::factory()->create();
-    }
-
     /** @test */
     public function user_has_address()
     {

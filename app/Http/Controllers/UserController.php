@@ -74,6 +74,15 @@ class UserController extends Controller {
     }
 
     /**
+     * @return JsonResponse
+     */
+    public function exampleTestService()
+    {
+        $data = $this->userService->exampleTestService();
+        return response()->json($data, 200);
+    }
+
+    /**
      * @return void
      */
     public function sendEmail()

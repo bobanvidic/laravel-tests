@@ -37,7 +37,12 @@ class UserTest extends TestCase
         $user = User::factory()->create();
         $response = $this->json('GET', "/users/{$user->id}/edit");
         $this->assertEquals(Response::HTTP_OK, $response->status()  ,'Show page is broken.');
-        $this->assertInstanceOf(Company::class, $user->company);
+        $response->assertJsonFragment([
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'email' => $user->email,
+            'company' => $user->company->name,
+        ]);
     }
 
     /** @test */
